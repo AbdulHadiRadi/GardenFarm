@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="675.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <children>
+    <AnchorPane fx:id="addPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="675.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Separator layoutX="34.0" layoutY="42.0" prefHeight="17.0" prefWidth="280.0" />
+            <Label layoutX="96.0" layoutY="16.0" prefHeight="43.0" prefWidth="100.0" text="INCOME / আয়" />
+            <HBox layoutX="61.0" layoutY="19.0" spacing="20.0" />
+            <VBox layoutX="34.0" layoutY="73.0" prefHeight="555.0" prefWidth="280.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="car" prefHeight="45.0" prefWidth="300.0" promptText="CAR / গাড়ি" />
+
+                  <ComboBox fx:id="garden" prefHeight="45.0" prefWidth="300.0" promptText="GARDEN / বাগান">
+                   <items>
+                       <FXCollections fx:factory="observableArrayList">
+                           <String fx:id="mohal" fx:value="MOHAL / মহাল" />
+                           <String fx:id="notun" fx:value="NOTUN / নতুন" />
+                           <String fx:id="puran" fx:value="PURAN / পুরান" />
+                           <String fx:id="chitla" fx:value="CHITLA / চিতলা" />
+                           <String fx:id="goni" fx:value="GONI / গনি" />
+                           <String fx:id="sohel" fx:value="SOHEL / সোহেল" />
+                           <String fx:id="nondo" fx:value="NONDO / নন্দ" />
+                       </FXCollections>
+                   </items>
+               </ComboBox>
+                  <ComboBox fx:id="element" prefHeight="45.0" prefWidth="300.0" promptText="ELEMENT / উপাদান">
+                   <items>
+                       <FXCollections fx:factory="observableArrayList">
+                           <String fx:id="lemon" fx:value="LEMON / লেবু" />
+                           <String fx:id="chili" fx:value=" CHILI / মরিচ" />
+                           <String fx:id="banana" fx:value="BANANA / কলা" />
+                           <String fx:id="pineapple" fx:value="PINEAPPLE / আনারস" />
+                       </FXCollections>
+                   </items>
+               </ComboBox>
+                  <TextField fx:id="amounts" prefHeight="45.0" prefWidth="269.0" promptText="AMOUNT / পরিমাণ" />
+                  <TextField fx:id="prices" prefHeight="45.0" prefWidth="269.0" promptText="PRICE/ মূল্য" />
+                  <ComboBox fx:id="payment" onAction="#unPaidAction" prefHeight="45.0" prefWidth="300.0" promptText="PAYMENT TYPE / বাকী">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:id="paid" fx:value="PAID / পেইড" />
+                              <String fx:id="unpaid" fx:value="UNPAID / বাকী" />
+                          </FXCollections>
+                      </items>
+                  </ComboBox>
+                  <ComboBox fx:id="loanees" onAction="#newBuyerAction" prefHeight="45.0" prefWidth="302.0" promptText="BUYER / ক্রেতা" />
+                  <TextField fx:id="buyer" prefHeight="45.0" prefWidth="269.0" promptText="NEW BUYER / নতুন ক্রেতা" />
+                  <TextField fx:id="address" prefHeight="45.0" prefWidth="269.0" promptText="Address / ঠিকানা" />
+                  <TextField fx:id="mobile" prefHeight="45.0" prefWidth="269.0" promptText="Mobile / মোবাইল নম্বর" />
+                  <HBox prefHeight="45.0" prefWidth="269.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitButtonAction" prefHeight="45.0" prefWidth="135.0" text="SUBMIT" />
+                        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButtonAction" prefHeight="45.0" prefWidth="135.0" text="CLEAR" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator layoutX="366.0" layoutY="49.0" prefHeight="3.0" prefWidth="280.0" />
+            <Label layoutX="412.0" layoutY="16.0" prefHeight="43.0" prefWidth="150.0" text="LOAN PAY / পাওনা আদায়" />
+            <Separator layoutX="701.0" layoutY="47.0" prefHeight="3.0" prefWidth="280.0" />
+            <VBox layoutX="366.0" layoutY="73.0" prefHeight="194.0" prefWidth="280.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="loaneeList" onAction="#loanlistAction" prefHeight="45.0" prefWidth="303.0" promptText="LOANEE / ঋণ" />
+                  <TextField fx:id="loanAmount" prefHeight="45.0" prefWidth="269.0" promptText="LOAN AMOUNT / পাওনা" />
+                  <TextField fx:id="loanPay" prefHeight="45.0" prefWidth="269.0" promptText="PAYING AMOUNT / আদায়" />
+                  <HBox prefHeight="45.0" prefWidth="269.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="loanPaidButton" mnemonicParsing="false" onAction="#loanPayingAction" prefHeight="45.0" prefWidth="135.0" text="Submit" />
+                        <Button mnemonicParsing="false" onAction="#clearLoaneeAction" prefHeight="45.0" prefWidth="135.0" text="Clear" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label layoutX="449.0" layoutY="308.0" prefHeight="43.0" prefWidth="76.0" text="COST / ব্যয়" />
+            <VBox layoutX="366.0" layoutY="361.0" prefHeight="267.0" prefWidth="280.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="costSource" onAction="#carNumberAction" prefHeight="45.0" prefWidth="300.0" promptText="SOURCE OF SPEND / উৎস">
+                    <items>
+                      <FXCollections fx:factory="observableArrayList">
+                        <String fx:id="basa" fx:value="HOME / বাসা" />
+                        <String fx:id="bari" fx:value="VILLAGE / বাড়ি" />
+                        <String fx:id="mohalCost" fx:value="MOHAL / মহাল" />
+                        <String fx:id="notunCost" fx:value="NOTUN / নতুন" />
+                        <String fx:id="puranCost" fx:value="PURAN / পুরান" />
+                        <String fx:id="chitlaCost" fx:value="CHITLA / চিতলা" />
+                        <String fx:id="goniCost" fx:value="GONI / গনি" />
+                        <String fx:id="sohelCost" fx:value="SOHEL / সোহেল" />
+                        <String fx:id="nondoCost" fx:value="NONDO / নন্দ" />
+                        <String fx:id="arod" fx:value="AROD / আরোদ" />
+                        <String fx:id="gari" fx:value="CAR / গাড়ী" />
+                      </FXCollections>
+                    </items>
+                  </ComboBox>
+                  <ComboBox fx:id="carNumber" prefHeight="45.0" prefWidth="300.0" promptText="CAR / গাড়ি" />
+
+                  <TextField fx:id="reason" prefHeight="45.0" prefWidth="300.0" promptText="REASON / কারণ" />
+                  <TextField fx:id="costAmount" prefHeight="45.0" prefWidth="300.0" promptText="AMAOUNT / পরিমাণ" />
+                  <HBox prefHeight="46.0" prefWidth="300.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="costSumbit" mnemonicParsing="false" onAction="#costSubmitAction" prefHeight="45.0" prefWidth="135.0" text="Submit" />
+                        <Button fx:id="costClear" mnemonicParsing="false" onAction="#costClearAction" prefHeight="45.0" prefWidth="135.0" text="Clear" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="740.0" layoutY="434.0" prefHeight="200.0" prefWidth="125.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="125.0" text="VILLAGE / বাড়ি" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" text="HOME / বাসা" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" text="CAR / গাড়ী" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0" text="LOAN LIST / পাওনা" />
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="173.0" text="GARDEN / বাগান" />
+               </children>
+            </VBox>
+            <VBox layoutX="701.0" layoutY="72.0" prefHeight="294.0" prefWidth="280.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="rentOrFees" onAction="#rentOrFeesAction" prefHeight="45.0" prefWidth="280.0" promptText="RENT or FEES / ভাড়া বা বেতন">
+                   <items>
+                   <FXCollections fx:factory="observableArrayList">
+                   <String fx:id="fees" fx:value="FEES / বেতন" />
+                   <String fx:id="rent" fx:value="RENT / ভাড়া" />
+                   </FXCollections>
+                   </items>
+                  </ComboBox>
+                  <ComboBox fx:id="rentlist" prefHeight="45.0" prefWidth="280.0" promptText="RENT / ভাড়া">
+                   <items>
+                   <FXCollections fx:factory="observableArrayList">
+                   <String fx:id="ar" fx:value="AROD" />
+                   <String fx:id="bar" fx:value="BARIDHARA" />
+                   </FXCollections>
+                   </items>
+                  </ComboBox>
+                  <ComboBox fx:id="feeslist" prefHeight="45.0" prefWidth="280.0" promptText="FEES / বেতন">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:id="shabu" fx:value="SHABU" />
+                              <String fx:id="sadi" fx:value="SADI" />
+                              <String fx:id="rana" fx:value="RANA" />
+                              <String fx:id="suk" fx:value="SHUKLAL" />
+                          </FXCollections>
+                      </items>
+                  </ComboBox>
+                  <ComboBox fx:id="month" prefHeight="45.0" prefWidth="280.0" promptText="MONTH / মাস">
+                      <items>
+                          <FXCollections fx:factory="observableArrayList">
+                              <String fx:id="jan" fx:value="JANUARY" />
+                              <String fx:id="fab" fx:value="FEBRUARY" />
+                              <String fx:id="mar" fx:value="MARCH" />
+                              <String fx:id="apr" fx:value="APRIL" />
+                              <String fx:id="may" fx:value="MAY" />
+                              <String fx:id="jun" fx:value="JUNE" />
+                              <String fx:id="july" fx:value="JULY" />
+                              <String fx:id="aug" fx:value="AUGUST" />
+                              <String fx:id="sep" fx:value="SEPTEMBER" />
+                              <String fx:id="oct" fx:value="OCTOBER" />
+                              <String fx:id="nov" fx:value="NOVEMBER" />
+                              <String fx:id="dec" fx:value="DECEMBER" />
+                          </FXCollections>
+                      </items>
+                  </ComboBox>
+                  <TextField fx:id="amountFR" prefHeight="45.0" prefWidth="280.0" promptText="AMAOUNT / পরিমাণ" />
+                  <HBox prefHeight="49.0" prefWidth="244.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="submitFR" mnemonicParsing="false" onAction="#rentFeesSubmit" prefHeight="45.0" prefWidth="135.0" text="SUBMIT" />
+                        <Button mnemonicParsing="false" onAction="#rentFeesClear" prefHeight="45.0" prefWidth="135.0" text="CLEAR" />
+                     </children>
+                  </HBox>
+               </children></VBox>
+            <Label layoutX="781.0" layoutY="14.0" prefHeight="32.0" prefWidth="186.0" text="RENT or FEES / ভাড়া বা বেতন" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
