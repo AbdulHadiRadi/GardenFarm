@@ -1,3 +1,3 @@
 # GardenFarm
-Java - 
-A system to track transitions 
+#Java 
+#A system to track transitions of a farm
