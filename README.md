@@ -1,3 +1,3 @@
 # GardenFarm
 #Java 
-#A system to track transitions of a farm
+#The system tracks financial information of a farm
